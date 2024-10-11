@@ -1,0 +1,155 @@
+/* General styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white; /* Page background color */
+    min-height: 100vh;
+}
+
+/* Container for the keyboard and display */
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Navigation Bar */
+.nav-bar {
+    width: 100%;
+    background-color: #FFB6C1; /* Light pink background */
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-item {
+    color: black; /* Black text for unselected items */
+    font-size: 18px;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    background-color: #FF69B4; /* Pink hover background */
+    border-radius: 5px;
+}
+
+/* Highlighted state */
+.nav-item.active {
+    background-color: #C71585; /* Dark pink background for active item */
+    color: white; /* White text for selected item */
+}
+
+/* Display box */
+#display {
+    width: 100%;
+    margin: 100px auto 20px;
+    padding: 20px;
+    font-size: 36px; /* Larger font size for the selected key */
+    text-align: center;
+    border: 2px solid lightgray; /* Change border color to light gray */
+    color: white; /* White text color for selected key */
+    background-color: #C71585; /* Dark pink background for selected key */
+    font-weight: bold; /* Bold text */
+}
+
+/* Popup for selected key */
+#popup {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9); /* Light background */
+    border: 2px solid #C71585; /* Border color */
+    padding: 20px;
+    text-align: center;
+    z-index: 2000; /* Ensure it's above other elements */
+}
+
+/* Keyboard container */
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 keys per row */
+    gap: 10px; /* Space between keys */
+    max-width: 600px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+/* Style for each key */
+.key {
+    padding: 20px;
+    background-color: white; /* Set key background to white */
+    color: black; /* Black text */
+    text-align: center;
+    cursor: pointer;
+    font-size: 32px; /* Larger font size */
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid black; /* Black border */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the text vertically */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100%; /* Ensures the keys fill the available grid column */
+    height: 80px; /* Fixed height for keys */
+}
+
+/* Adjust rows for letters to fit in 3 lines */
+.keyboard {
+    grid-template-rows: repeat(3, auto); /* Three rows */
+}
+
+/* Hover effect: dark pink background and white text */
+.key:hover {
+    background-color: #C71585; /* Change to dark pink on hover */
+    color: white; /* Change text color to white on hover */
+}
+
+/* Selected key state */
+.key.selected {
+    background-color: #C71585; /* Dark pink */
+    color: white; /* White text */
+}
+
+/* Responsive design: Mobile-first approach */
+@media (max-width: 768px) {
+    #display {
+        font-size: 18px;
+    }
+
+    .key {
+        font-size: 24px;
+        height: 60px; /* Adjust key height for mobile */
+    }
+
+    /* Responsive centering for smaller screens */
+    .keyboard {
+        grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns */
+    }
+}
+
+@media (min-width: 1200px) {
+    .key {
+        height: 100px; /* Fixed height for larger screens */
+    }
+
+    #display {
+        font-size: 28px; /* Increase display font size */
+    }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Virtual Keyboard</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <a class="nav-item" onclick="showKeyboard('capital')">CAPITAL ABC</a>
+        <a class="nav-item" onclick="showKeyboard('small')">SMALL ABC</a>
+        <a class="nav-item" onclick="showKeyboard('numbers')">123</a>
+    </nav>
+
+    <div class="container">
+        <div id="display">Click a key</div>
+        <div class="keyboard" id="keyboard-container"></div>
+    </div>
+
+    <script src="scripts.js"></script> <!-- Link to external JavaScript -->
+</body>
+</html>
